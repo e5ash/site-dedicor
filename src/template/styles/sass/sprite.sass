@@ -1,0 +1,121 @@
+// SASS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home
+//   width: $icon-home-width
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites
+$phone-big-name: 'phone-big'
+$phone-big-x: 0px
+$phone-big-y: 0px
+$phone-big-offset-x: 0px
+$phone-big-offset-y: 0px
+$phone-big-width: 52px
+$phone-big-height: 52px
+$phone-big-total-width: 90px
+$phone-big-total-height: 77px
+$phone-big-image: '../../img/sprite.png'
+$phone-big: (0px, 0px, 0px, 0px, 52px, 52px, 90px, 77px, '../../img/sprite.png', 'phone-big', )
+$phone-name: 'phone'
+$phone-x: 0px
+$phone-y: 52px
+$phone-offset-x: 0px
+$phone-offset-y: -52px
+$phone-width: 25px
+$phone-height: 25px
+$phone-total-width: 90px
+$phone-total-height: 77px
+$phone-image: '../../img/sprite.png'
+$phone: (0px, 52px, 0px, -52px, 25px, 25px, 90px, 77px, '../../img/sprite.png', 'phone', )
+$placeholder-big-name: 'placeholder-big'
+$placeholder-big-x: 52px
+$placeholder-big-y: 0px
+$placeholder-big-offset-x: -52px
+$placeholder-big-offset-y: 0px
+$placeholder-big-width: 38px
+$placeholder-big-height: 52px
+$placeholder-big-total-width: 90px
+$placeholder-big-total-height: 77px
+$placeholder-big-image: '../../img/sprite.png'
+$placeholder-big: (52px, 0px, -52px, 0px, 38px, 52px, 90px, 77px, '../../img/sprite.png', 'placeholder-big', )
+$placeholder-name: 'placeholder'
+$placeholder-x: 25px
+$placeholder-y: 52px
+$placeholder-offset-x: -25px
+$placeholder-offset-y: -52px
+$placeholder-width: 19px
+$placeholder-height: 25px
+$placeholder-total-width: 90px
+$placeholder-total-height: 77px
+$placeholder-image: '../../img/sprite.png'
+$placeholder: (25px, 52px, -25px, -52px, 19px, 25px, 90px, 77px, '../../img/sprite.png', 'placeholder', )
+$spritesheet-width: 90px
+$spritesheet-height: 77px
+$spritesheet-image: '../../img/sprite.png'
+$spritesheet-sprites: ($phone-big, $phone, $placeholder-big, $placeholder, )
+$spritesheet: (90px, 77px, '../../img/sprite.png', $spritesheet-sprites, )
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home
+//   @include sprite-width($icon-home)
+//
+// .icon-email
+//   @include sprite($icon-email)
+//
+// Example usage in HTML:
+//   `display: block` sprite:
+//   <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//   // CSS
+//   .icon {
+//     display: inline-block;
+//   }
+//
+//   // HTML
+//   <i class="icon icon-home"></i>
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)
+
+
+.icon-
+  &phone-big
+    @include sprite($phone-big)
+  &phone
+    @include sprite($phone)
+  &placeholder-big
+    @include sprite($placeholder-big)
+  &placeholder
+    @include sprite($placeholder)

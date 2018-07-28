@@ -3,12 +3,14 @@
 @import fonts.sass
 @import grid.sass
 @import '../../libs/fancybox/dist/jquery.fancybox.css'
+@import url('https://fonts.googleapis.com/css?family=Roboto')
 
 
 /* Global settings */
-$font-size: 16px
-$font-family-1: 'Tahoma', sans-serif
-$color-1: #000
+$font-size: 18px
+$font-family-1: 'RobotoSlab', sans-serif
+$font-family-2: 'Roboto', sans-serif
+$color-1: #333333
 
 
 *, :before, :after
@@ -30,6 +32,9 @@ ul
 	flex-wrap: wrap
 	justify-content: flex-start
 
+li
+	display: block
+	list-style-type: none
 a
 	color: $color-1
 	text-decoration: none
@@ -51,30 +56,76 @@ input, textarea, button
 /* Form elements */
 .input
 	position: relative
+	&__title
+		font-family: $font-family-2
+		margin-left: 14px
+		margin-right: 14px
+		margin-bottom: 7px
+		color: #6a6a6a
+		display: block
 	&__wrap
 		font-size: $font-size
-		font-family: $font-family-1
+		font-family: $font-family-2
 		background: white
 		width: 100%
-		
+		display: block
+		border: 1px solid #e8e8e8
+		padding-left: 14px
+		padding-right: 14px
+		border-radius: 2px
+		height: 34px
+		letter-spacing: 0.45px
 
 .textarea
 	position: relative
+	&__title
+		font-family: $font-family-2
+		margin-left: 14px
+		margin-right: 14px
+		margin-bottom: 7px
+		color: #6a6a6a
+		display: block
 	&__wrap
 		font-size: $font-size
-		font-family: $font-family-1
+		font-family: $font-family-2
 		background: white
 		width: 100%
+		display: block
+		border: 1px solid #e8e8e8
+		padding-left: 14px
+		padding-right: 14px
+		padding-top: 10px
+		padding-bottom: 10px
+		border-radius: 2px
 		resize: none
+		height: 105px
+		letter-spacing: 0.45px
 
 .btn
 	position: relative
-	display: inline-block
+	display: block
 	font-size: 0
 	font-family: $font-family-1
 	cursor: pointer
 	text-align: center
 	transition: .3s
+	background: none
+	width: 100%
+	span
+		display: flex
+		justify-content: center
+		align-items: center
+		font-size: 21px
+		letter-spacing: 0.53px
+		height: 47px
+	&_gradient
+		span
+			color: #fff
+			border: 1px solid #e8e8e8
+			background-color: #003a62
+			padding-bottom: 2px
+			background-image: linear-gradient(-236deg, rgba(65, 59, 139, 0.8) 0%, rgba(237, 81, 53, 0.8) 100%)
+
 
 .input input, .textarea textarea
 	transition: .3s
@@ -95,6 +146,287 @@ input, .btn, .slick-slide, textarea
 .mid
 	margin-left: auto
 	margin-right: auto
+
+
+.icon
+	display: inline-block
+	vertical-align: middle
+
+.panel
+	background-color: #fff
+	padding-top: 12px
+	padding-bottom: 9px
+	&__contacts
+		font-size: 16px
+		letter-spacing: 0.4px
+		u
+			width: 25px
+		p
+			padding-left: 37px
+			position: relative
+			margin-bottom: 4px
+			width: 225px
+			&:last-of-type
+				margin-bottom: 0
+			u
+				position: absolute
+				top: 50%
+				left: 0
+				transform: translateY(-50%)
+		
+		a
+			font-size: 18px
+
+	&__contacts, &__logo, &__lang
+		width: 33.333%
+
+	&__logo
+		text-align: center
+
+	&__lang
+		text-align: right
+		li
+			margin-left: 6px
+		
+
+
+.title
+	font-size: 30px
+	text-align: center
+	&:after
+		display: block
+		content: ''
+		width: 162px
+		height: 4px
+		background-color: #fff
+		margin-left: auto
+		margin-right: auto
+		margin-top: 10px
+		margin-bottom: 15px
+	&_left
+		text-align: left
+		&:after
+			margin-left: 0 
+
+.subtitle
+	font-size: 24px
+	text-align: center
+	&:after
+		display: block
+		content: ''
+		width: 162px
+		height: 4px
+		background-color: #bf514e
+		margin-left: auto
+		margin-right: auto
+		margin-top: 7px
+	&_left
+		text-align: left
+		&:after
+			margin-left: 0 
+
+.header
+	color: #fff
+	background-image: linear-gradient(-236deg, #413b8b 0%, #ed5135 100%)
+	overflow: hidden
+	.case
+		padding-top: 20px
+		padding-bottom: 55px
+		&:after
+			content: ''
+			display: block
+			position: absolute
+			width: 588px
+			height: 513px
+			right: -228px
+			bottom: 0
+			background: url('../../img/bg/man.png') no-repeat center
+	&__title
+		
+	&__text
+		font-family: $font-family-2
+		max-width: 600px
+		text-align: justify
+		line-height: 28px
+		letter-spacing: 0.45px
+		p
+			margin-bottom: 20px
+			&:last-of-type
+				margin-bottom: 0
+	&__form
+	
+
+.form
+	width: 450px
+	color: $color-1
+	background-color: #fff
+	padding: 10px 23px 23px
+	&__title
+		&:after
+			background-color: #904563
+
+	&__input
+		margin-bottom: 12px
+
+	&__bottom
+		padding-top: 20px
+
+	&__captcha
+		padding-right: 18px
+		
+	&__btn
+		&-wrap
+			padding-left: 18px
+		
+	&__captcha, &__btn-wrap
+		width: 50%
+		
+		
+		
+		
+
+.policy
+	padding-top: 40px
+	padding-bottom: 48px
+	&__title
+		margin-bottom: 60px
+		
+	&__list
+		margin-left: -7px
+		margin-right: -7px
+		
+	&__item
+		width: 25%
+		text-align: center
+		padding-left: 7px
+		padding-right: 7px
+
+	&__icon
+		display: flex
+		justify-content: center
+		align-items: center
+		height: 121px
+		margin-bottom: 7px
+
+	&__text
+		font-size: 14px
+		font-family: $font-family-2
+		
+
+
+
+.pro
+	padding-top: 9px
+	padding-bottom: 16px
+	border-top: 1px solid #ebeaea
+	background-color: #fdfcfc
+	&__title
+		margin-bottom: 15px
+		
+	&__content
+		width: 580px
+
+	&__text
+		font-family: $font-family-2
+		letter-spacing: 0.45px
+		
+
+
+.page
+	padding-top: 40px
+	padding-bottom: 29px
+	&__title
+		margin-bottom: 20px
+		&:after
+			width: 94px
+
+
+
+.text
+	font-family: $font-family-2
+	letter-spacing: .45px
+	p
+		margin-bottom: 15px
+	h1, h2, h3, h4
+		margin-bottom: 5px
+		margin-top: 10px
+	li
+		display: list-item
+		width: 100%
+	ul, ol
+		margin-left: 17px
+		margin-bottom: 15px
+	ul
+		li
+			width: 100%
+			list-style-type: disc
+			margin-bottom: 5px
+	ol
+		li
+			list-style-type: decimal
+
+
+	table
+		border-collapse: collapse
+		text-align: center
+		margin-top: 20px
+		margin-bottom: 20px
+		td, th
+			padding: 3px 10px
+			border: 1px solid #e8e8e8
+
+
+
+
+.contacts
+	margin-top: 40px
+	&__item
+		width: 50%
+		display: flex
+		align-items: center
+		span, a
+			font-size: 24px
+		&:nth-of-type(even)
+			padding-left: 70px
+
+	&__text
+			margin-left: 28px
+
+
+.footer
+	color: #fff
+	background-color: #333333
+	text-align: center
+	font-size: 16px
+	letter-spacing: 0.4px
+	padding-top: 7px
+	padding-bottom: 8px
+	line-height: 24px
+	a
+		color: #fff
+	ul
+		justify-content: center
+		align-items: center
+	&__copy
+		
+	&__nav
+		li
+			&:after
+				content: '|'
+				margin-left: 5px
+				margin-right: 5px
+			&:last-of-type
+				&:after
+					display: none
+
+			&.selected
+				a
+					border-color: #fff
+		a
+			&:hover
+				border-color: #fff
+		
+		
 
 
 
